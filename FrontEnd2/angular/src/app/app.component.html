@@ -1,0 +1,30 @@
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<form #userPost="ngForm" class="row">
+  <div class="col-md-5">
+      <select id="data" (change)="onEncode($event)">
+        <option  *ngFor="let data of dataInputOutput"  value="{{data.in}}" >
+          {{data.in}}
+        </option>
+    </select>
+    <br/>
+    <Label>Nhập</Label>
+    <input type="text" class="form-control" ngModel name="inputValue" />
+  </div>
+
+  <div class="col-md-2">
+    <button class="btn btn-primary" type="submit" (click)="onSubmit(userPost.value)">Convert</button>
+  </div>
+
+  <div class="col-md-5">
+    <select id="output" (change)="onDecode($event)">
+      <option  *ngFor="let output of outputs"   value="{{output}}" >
+        {{output}}
+      </option>
+   </select>
+    <br>
+    <label>Xuất</label>
+    <input type="text" class="form-control"  value="{{display2}}" />
+  </div>
+</form>
